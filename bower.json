@@ -1,0 +1,25 @@
+{
+  "name": "Goldsmith",
+  "version": "0.0.1",
+  "authors": [
+    "Maxim Oleinyk <maxim.oleinyk@gmail.com>"
+  ],
+  "dependencies": {
+    "jquery": "2.1.0",
+    "angular": "~1.2.16"
+  },
+  "description": "This is the skeleton app that utilize mainstream technologies.",
+  "main": "./js/config.js",
+  "keywords": [
+    "nodeJS",
+    "express",
+    "Angular",
+    "jquery",
+    "JSON"
+  ],
+  "homepage": "http://localhost:3000",
+  "private": true,
+  "ignore": [
+    "node_modules"
+  ]
+}
