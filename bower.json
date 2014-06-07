@@ -6,7 +6,12 @@
   ],
   "dependencies": {
     "jquery": "2.1.0",
-    "angular": "~1.2.16"
+    "requirejs": "~2.1.14",
+    "requirejs-domready": "~2.0.1",
+    "angular": "~1.2.16",
+    "angular-resource": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "requirejs-text": "~2.0.12"
   },
   "description": "This is the skeleton app that utilize mainstream technologies.",
   "main": "./js/config.js",

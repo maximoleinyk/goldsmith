@@ -1,17 +1,28 @@
 <!DOCTYPE>
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
-<!--[if (lt IE 9)|(IE 9)]><!--><html lang="en" ng-app="app" class="no-support no-js"> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if (lt IE 9)|(IE 9)]><!-->
+<html lang="en" class="no-support no-js"> <!--<![endif]-->
 <head>
     <title>Wax models</title>
-    <link rel="stylesheet" href="/static/css/main.css" media="all" />
+    <link rel="stylesheet" href="/static/css/main.css" media="all"/>
     <script type="text/javascript">
-        (function(r) {r.className = r.className.replace(/no-js/gi, 'js');}(document.documentElement));
+        (function (r) {r.className = r.className.replace(/no-js/gi, 'js');}(document.documentElement));
     </script>
 </head>
-
 <body>
-<h1>Welcome page!</h1>
-</body>
+<ng-view></ng-view>
+<script src="/static/js/libs/requirejs/require.js"></script>
+<script>
+    require(['/static/js/config.js'], function () {
+        require(['domReady'], function (domReady) {
+            domReady(function () {
+                require(['app/landing/main']);
+            });
+        });
+    });
+</script>
 
+</body>
 </html>
 
