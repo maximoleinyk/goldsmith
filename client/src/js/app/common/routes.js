@@ -1,11 +1,11 @@
-define([
-	'app/common/module',
-	'text!app/common/controllers/notFound/top.tpl.html',
-	'app/common/controllers/notFound/top'
-], function (module, notFoundTpl) {
+define(function (require) {
+
+	require('app/common/controllers/notFound/top');
+	require('app/common/controllers/layout/top');
+
+	var module = require('app/common/module');
 
 	module.run(['$rootScope', '$location', function ($rootScope, $location) {
-		window.debug = $location;
 		$rootScope.$on('$routeChangeError', function (event, current, previous, error) {
 			if (error.status === 404) {
 				$location.path('/404');
@@ -16,8 +16,12 @@ define([
 	module.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 		$routeProvider
 			.when('/404', {
-				template: notFoundTpl,
+				template: require('text!app/common/controllers/notFound/top.tpl.html'),
 				controller: 'NotFoundCtrl'
+			})
+			.when('/', {
+				template: require('text!app/common/controllers/layout/top.tpl.html'),
+				controller: 'LayoutCtrl'
 			});
 		$locationProvider.html5Mode(true);
 	}]);
