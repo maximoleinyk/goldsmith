@@ -1,4 +1,4 @@
-define(['app/common/module'], function(common) {
-	return common.controller('NotFoundCtrl', ['$scope', function($scope) {
+define(['app/common/module'], function(module) {
+	return module.controller('NotFoundCtrl', ['$scope', function($scope) {
 	}]);
 });

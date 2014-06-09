@@ -19,6 +19,13 @@ module.exports = function (grunt) {
 			}
 		},
 
+		jscs: {
+			src: "client/src/js/app/**/*.js",
+			options: {
+				config: ".jscs.json"
+			}
+		},
+
 		less: {
 			compile: {
 				options: {
@@ -137,9 +144,9 @@ module.exports = function (grunt) {
                         define(["angular"], function (angular) {\
                             "use strict";\
                             var templates = angular.module("templates", []);\
-                            templates.run(function($templateCache) {\
+                            templates.run(["$templateCache", function($templateCache) {\
                             ' + script + '\
-                            });\
+                            }]);\
                             return templates;\
                         });';
 					}
@@ -215,6 +222,10 @@ module.exports = function (grunt) {
 					'dist/client/js/require.js': 'dist/client/js/require.js',
 					'dist/client/js/app/config.js': 'dist/client/js/app/config.js',
 					'dist/client/js/app/landing/main.js': 'dist/client/js/app/landing/main.js'
+				},
+				options : {
+					beautify : false,
+					mangle   : false
 				}
 			}
 		}
@@ -229,7 +240,14 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks("grunt-jscs-checker");
 
-	grunt.registerTask('default', ['clean', 'less']);
+	grunt.registerTask('validate', []);
+	grunt.registerTask('compile', ['copy:temp', 'less', 'ngtemplates', 'replace:templatesPath']);
+	grunt.registerTask('build', ['requirejs']);
+	grunt.registerTask('deploy', ['copy:css', 'copy:assets', 'copy:js', 'copy:html', 'replace:scriptsPath']);
+	grunt.registerTask('optimize', ['uglify', 'clean:temp']);
+
+	grunt.registerTask('default', ['clean', 'validate', 'compile', 'build', 'deploy', 'optimize']);
 
 };

@@ -2,6 +2,7 @@
 .grunt
 .idea
 node_modules
+client/src/css/main.css
 client/src/js/libs
 dist
 temp
