@@ -1,0 +1,73 @@
+@import "../globals/variables";
+
+@bgHeight: 600px;
+
+.landing {
+
+  .background {
+    width: 100%;
+    background: transparent url('@{img-path}/bg.jpg') no-repeat center center;
+    height: @bgHeight;
+    background-size: cover;
+    background-color: #eee;
+  }
+
+  .container-wrapper {
+    .box-shadow(0 -1px 3px @shadowColor);
+  }
+
+  .header {
+    padding: 10px 0;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    float: right;
+  }
+
+  .sections {
+    height: 500px;
+
+    dl {
+      padding: 30px 0 15px;
+
+      dt {
+        padding: 20px 0 10px;
+        line-height: 0.5;
+        text-align: center;
+        overflow: hidden;
+
+        > * {
+          display: inline-block;
+          position: relative;
+
+          &:before,
+          &:after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            border-bottom: 1px solid #eee;
+            border-top: 1px solid #eee;
+            top: 50%;
+            margin-top: -2px;
+            width: 9999px;
+          }
+
+          &:before {
+            right: 100%;
+            margin-right: 15px;
+          }
+
+          &:after {
+            left: 100%;
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    padding: 30px 0;
+    background-color: #333;
+    color: #fff;
+  }
+}

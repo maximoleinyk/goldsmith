@@ -11,7 +11,9 @@
     "angular": "~1.2.16",
     "angular-resource": "~1.2.16",
     "angular-route": "~1.2.16",
-    "requirejs-text": "~2.0.12"
+    "requirejs-text": "~2.0.12",
+    "angular-bootstrap": "~0.11.0",
+    "angular-ui-router": "~0.2.10"
   },
   "description": "This is the skeleton app that utilize mainstream technologies.",
   "main": "./js/config.js",

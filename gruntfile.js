@@ -201,8 +201,7 @@ module.exports = function (grunt) {
 								'angular',
 								'angular-resource',
 								'angular-route',
-								'domReady',
-								'text'
+								'domReady'
 							]
 						},
 						{
