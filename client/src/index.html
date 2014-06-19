@@ -6,12 +6,13 @@
 <head>
     <title>Wax models</title>
     <link rel="stylesheet" href="/static/css/main.css" media="all"/>
+    <base href="/"/>
     <script type="text/javascript">
         (function (r) {r.className = r.className.replace(/no-js/gi, 'js');}(document.documentElement));
     </script>
 </head>
 <body>
-<ng-view></ng-view>
+<div ui-view></div>
 <script src="/static/js/libs/requirejs/require.js"></script>
 <script>
     require(['/static/js/config.js'], function () {

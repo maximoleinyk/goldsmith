@@ -1,29 +1,19 @@
 define(function (require) {
 
-	require('app/common/controllers/notFound/top');
-	require('app/common/controllers/layout/top');
-
 	var module = require('app/common/module');
 
-	module.run(['$rootScope', '$location', function ($rootScope, $location) {
-		$rootScope.$on('$routeChangeError', function (event, current, previous, error) {
-			if (error.status === 404) {
-				$location.path('/404');
-			}
-		});
-	}]);
-
-	module.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-		$routeProvider
-			.when('/404', {
+	module.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
+		$stateProvider
+			.state('404', {
 				template: require('text!app/common/controllers/notFound/top.tpl.html'),
-				controller: 'NotFoundCtrl'
+				controller: require('app/common/controllers/notFound/top')
 			})
-			.when('/', {
-				template: require('text!app/common/controllers/layout/top.tpl.html'),
-				controller: 'LayoutCtrl'
+			.state('page', {
+				abstract: true,
+				template: require('text!app/common/controllers/layout/top.tpl.html')
 			});
+
+		// Enable support for push state
 		$locationProvider.html5Mode(true);
 	}]);
-
 });

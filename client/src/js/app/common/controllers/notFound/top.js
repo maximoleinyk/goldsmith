@@ -1,4 +1,9 @@
 define(['app/common/module'], function(module) {
-	return module.controller('NotFoundCtrl', ['$scope', function($scope) {
-	}]);
+	var controller = ['$scope', function ($scope) {
+		console.log('404');
+	}];
+
+	module.controller('NotFoundCtrl', controller);
+
+	return controller;
 });
